@@ -1,0 +1,604 @@
+<section>
+    <div class="text-center p-10">
+        <h2 class="text-4xl font-semibold mb-8">
+            Tutorial Rápido: Comandos Esenciales de Docker
+        </h2>
+        <h4 class="text-lg text-gray-400">
+            (es importante el usar el ID de las imágenes o el contenedor,para no
+            tener complicaciones.)
+        </h4>
+        <h6 class="text-gray-400 p-4">
+            (Este tutorial es mediante el uso de terminal ,también se implementa
+            de modo gráfico en Docker para windows en el siguiente
+            apartado….,este tutorial también funciona desde el apartado de
+            terminal en Docker Desktop)
+        </h6>
+    </div>
+
+    <p class="text-lg p-5 text-center text-gray-400">
+        En este caso usaremos unas especificaciones de uso de hardware de
+        ejemplo,puedes cambiarlo de acuerdo a tus necesidades ,en algunos casos
+        de software bioinformático ,como MetalDock y qiime ,es importante usar
+        el volumen /tmp ,ya que podría tener problemas al ejecutarse en máquinas
+        con demasiada poca potencia ,como es el caso de cualquier equipo que no
+        sea una super computadora o servidor. También usaremos un volumen en
+        /workspace/volume ,para evitar la pérdida de archivos precargados en
+        otras rutas,donde podrás manipular libremente los archivos generados en
+        el docker ,desde tu máquina host.
+    </p>
+
+    <div class="mt-12 text-center">
+        <h2 class="text-3xl font-semibold mb-10 md:text-4xl">Paso No.-1</h2>
+        <p class="text-xl text-gray-200 mb-5 md:text-2xl">
+            0 instalación de docker
+        </p>
+        <p class="text-lg px-10 md:text-base">
+            Omitiremos este paso ,ya que esta opción está documentada en la
+            página oficial de Docker, que podemos encontrar en el buscador como
+            Docker o Docker Desktop
+        </p>
+        <p class="text-gray-400 p-5">
+            Da click en la imagen para ir a la documentación oficial de Docker
+        </p>
+        <a
+            href="https://www.docker.com/"
+            target="_blank"
+            class="h-72 w-80 inline-block"
+        >
+            <img
+                src="docker_logo.png"
+                class="w-full h-full object-contain"
+                alt="Logo Docker"
+            />
+        </a>
+    </div>
+</section>
+
+<!-- Paso 1 -->
+<section class="flex flex-col md:flex-row items-center gap-6 md:gap-12 py-10">
+    <!-- Imagen -->
+    <div class="w-full md:w-1/2 p-5">
+        <img
+            src="/Imagen_1.png"
+            alt="Descripción de la imagen"
+            class="w-full rounded-xl shadow-md"
+        />
+    </div>
+
+    <!-- Contenido -->
+    <div class="w-full md:w-1/2 space-y-4 px-4 md:px-0">
+        <h2 class="text-2xl font-bold text-white px-5">
+            1. Iniciar sesión en Docker Hub (o registro privado)
+        </h2>
+
+        <!-- Comando con botón de copiar -->
+        <div class="px-4">
+            <div
+                class="flex items-center gap-2 bg-gray-100 p-2 rounded-md border border-gray-300 overflow-auto"
+            >
+                <code class="comando-copiable text-sm text-gray-700"
+                    >docker login
+                </code>
+                <span class="text-sm text-green-800">
+                    # Ingresa tu usuario y contraseña de Docker Hub
+                </span>
+                <button
+                    class="copiar-comando ml-auto p-1 text-2xl text-gray-500 hover:text-gray-800 cursor-pointer"
+                    aria-label="Copiar comando al portapapeles"
+                >
+                    📋
+                </button>
+            </div>
+        </div>
+
+        <!-- Mensaje de copiado -->
+        <p class="mensaje-copiado text-green-600 text-lg hidden px-5">
+            ¡Comando copiado al portapapeles!
+        </p>
+
+        <!-- Descripción -->
+        <p class="text-gray-300 text-sm leading-relaxed px-5">
+            Docker login te permite autenticarte con un registro de Docker para
+            poder acceder a contenido privado y, a veces, obtener beneficios
+            adicionales al interactuar con el registro. ¡Es como darte permiso
+            para usar todas las funciones de la biblioteca Docker!
+        </p>
+    </div>
+</section>
+<!-- Paso 1 -->
+
+<!-- Paso 2 -->
+<section
+    class="flex flex-col md:flex-row-reverse items-center gap-6 md:gap-12 py-10"
+>
+    <!-- Imagen -->
+    <div class="w-full md:w-1/2 p-5">
+        <img
+            src="/Imagen_2.png"
+            alt="Descripción de la imagen"
+            class="w-full rounded-xl shadow-md"
+        />
+    </div>
+
+    <!-- Contenido -->
+    <div class="w-full md:w-1/2 space-y-4 px-4 md:px-0">
+        <h2 class="text-2xl font-bold text-white px-5">
+            2. Descargar una imagen (por ID o nombre)
+        </h2>
+
+        <!-- Comando con botón de copiar -->
+        <div class="px-4">
+            <div
+                class="flex items-center gap-2 bg-gray-100 p-2 rounded-md border border-gray-300 overflow-auto"
+            >
+                <code class="comando-copiable text-sm text-gray-700"
+                    >docker pull ubuntu:22.04
+                </code>
+                <span class="text-sm text-green-800">
+                    # Descarga la imagen (los comandos pull de imágenes
+                    bioinformáticas ,se proporcionan aquí)
+                </span>
+                <button
+                    class="copiar-comando ml-auto p-1 text-2xl text-gray-500 hover:text-gray-800 cursor-pointer"
+                    aria-label="Copiar comando al portapapeles"
+                >
+                    📋
+                </button>
+            </div>
+        </div>
+
+        <!-- Comando con botón de copiar -->
+        <div class="px-4">
+            <div
+                class="flex items-center gap-2 bg-gray-100 p-2 rounded-md border border-gray-300 overflow-auto"
+            >
+                <code class="comando-copiable text-sm text-gray-700"
+                    >docker images
+                </code>
+                <span class="text-sm text-green-800">
+                    # Lista imágenes locales (verás el ID en la columna "IMAGE
+                    ID")
+                </span>
+                <button
+                    class="copiar-comando ml-auto p-1 text-2xl text-gray-500 hover:text-gray-800 cursor-pointer"
+                    aria-label="Copiar comando al portapapeles"
+                >
+                    📋
+                </button>
+            </div>
+        </div>
+
+        <!-- Mensaje de copiado -->
+        <p class="mensaje-copiado text-green-600 text-lg hidden px-5">
+            ¡Comando copiado al portapapeles!
+        </p>
+
+        <!-- Descripción -->
+        <p class="text-gray-300 text-sm leading-relaxed px-5">
+            Docker login te permite autenticarte con un registro de Docker para
+            poder acceder a contenido privado y, a veces, obtener beneficios
+            adicionales al interactuar con el registro. ¡Es como darte permiso
+            para usar todas las funciones de la biblioteca Docker!
+        </p>
+    </div>
+</section>
+<!-- Paso 2 -->
+
+<!-- Paso 3 -->
+<section class="flex flex-col md:flex-row items-center gap-6 md:gap-12 py-10">
+    <!-- Imagen -->
+    <div class="w-full md:w-1/2 p-5">
+        <img
+            src="/Imagen_1.png"
+            alt="Descripción de la imagen"
+            class="w-full rounded-xl shadow-md"
+        />
+    </div>
+
+    <!-- Contenido -->
+    <div class="w-full md:w-1/2 space-y-4 px-4 md:px-0">
+        <h2 class="text-2xl font-bold text-white px-5">
+            3. Crear un contenedor con opciones específicas (al ejecutar el
+            comando el contenedor se abrira automaticamente ,estara listo para
+            usarse)
+        </h2>
+
+        <!-- Comando con botón de copiar -->
+        <div class="px-4">
+            <div
+                class="flex items-center gap-2 bg-gray-100 p-2 rounded-md border border-gray-300 overflow-auto"
+            >
+                <code class="comando-copiable text-sm text-gray-700"
+                    >docker run -it \ --memory=16g \ --cpus=4 \ -v
+                    /ruta/host:/workspace/volume \ -v /tmp:/tmp \ --name
+                    mi_contenedor \ bf0ed52cf8c1
+                </code>
+                <span class="text-sm text-green-800">
+                    # (IMAGE ID o nombre)
+                </span>
+                <button
+                    class="copiar-comando ml-auto p-1 text-2xl text-gray-500 hover:text-gray-800 cursor-pointer"
+                    aria-label="Copiar comando al portapapeles"
+                >
+                    📋
+                </button>
+            </div>
+        </div>
+
+        <!-- Mensaje de copiado -->
+        <p class="mensaje-copiado text-green-600 text-lg hidden px-5">
+            ¡Comando copiado al portapapeles!
+        </p>
+
+        <!-- Descripción -->
+        <p class="text-gray-300 text-sm leading-relaxed px-5">
+            Este comando docker run crea y ejecuta un nuevo contenedor llamado
+            "mi_contenedor" a partir de la imagen identificada por bf0ed52cf8c1.
+            Le asigna 16 gigabytes de memoria y 4 núcleos de CPU, establece dos
+            volúmenes para compartir archivos: uno que monta /ruta/host de tu
+            sistema en /workspace/volume dentro del contenedor, y otro que
+            comparte la carpeta temporal /tmp. La opción -it permite una
+            interacción terminal con el contenedor.
+        </p>
+        <p class="text-green-600 text-sm leading-relaxed px-5">
+            NOTA: en este punto tu contenedor está activo y listo para usarse,
+            los pasos después del desuso o cierre del contenedor, son para
+            volver activarlo y usarlo, a excepción del paso número 8.
+        </p>
+    </div>
+</section>
+<!-- Paso 3 -->
+
+<!-- Paso 4 -->
+<section
+    class="flex flex-col md:flex-row-reverse items-center gap-6 md:gap-12 py-10"
+>
+    <!-- Imagen -->
+    <div class="w-full md:w-1/2 p-5">
+        <img
+            src="/Imagen_2.png"
+            alt="Descripción de la imagen"
+            class="w-full rounded-xl shadow-md"
+        />
+    </div>
+
+    <!-- Contenido -->
+    <div class="w-full md:w-1/2 space-y-4 px-4 md:px-0">
+        <h2 class="text-2xl font-bold text-white px-5">
+            4. Salir del contenedor (Sin detenerlo)
+        </h2>
+
+        <!-- Comando sin botón de copiar -->
+        <div class="px-4">
+            <div
+                class="flex items-center gap-2 bg-gray-100 p-2 rounded-md border border-gray-300 overflow-auto"
+            >
+                <code class="text-sm text-gray-700"
+                    >Presiona Ctrl + P + Q
+                </code>
+                <span class="text-sm text-green-800">
+                    (Secuencia de teclas)
+                </span>
+            </div>
+        </div>
+
+        <div class="px-4">
+            <div
+                class="flex items-center gap-2 bg-gray-100 p-2 rounded-md border border-gray-300 overflow-auto"
+            >
+                <code class="text-sm text-gray-700"
+                    >Si usas exit o Ctrl + D
+                </code>
+                <span class="text-sm text-green-800">
+                    El contenedor se detendrá. #Ver el contenedor creado(se
+                    realiza desde otra terminal)
+                </span>
+            </div>
+        </div>
+
+        <!-- Comando con botón de copiar -->
+        <div class="px-4">
+            <div
+                class="flex items-center gap-2 bg-gray-100 p-2 rounded-md border border-gray-300 overflow-auto"
+            >
+                <code class="comando-copiable text-sm text-gray-700"
+                    >docker ps -a
+                </code>
+                <span class="text-sm text-green-800">
+                    # Verás el CONTAINER ID del contenedo
+                </span>
+                <button
+                    class="copiar-comando ml-auto p-1 text-2xl text-gray-500 hover:text-gray-800 cursor-pointer"
+                    aria-label="Copiar comando al portapapeles"
+                >
+                    📋
+                </button>
+            </div>
+        </div>
+
+        <!-- Mensaje de copiado -->
+        <p class="mensaje-copiado text-green-600 text-lg hidden px-5">
+            ¡Comando copiado al portapapeles!
+        </p>
+
+        <!-- Descripción -->
+        <p class="text-gray-300 text-sm leading-relaxed px-5">
+            La combinación de teclas Ctrl + P + Q te permite desconectar tu
+            terminal del contenedor en ejecución, permitiéndote volver a tu
+            consola principal sin interrumpir el proceso que se está ejecutando
+            dentro del contenedor. El contenedor seguirá funcionando en segundo
+            plano. docker ps -a para ver el contenedor: Este comando lista todos
+            los contenedores que existen en tu sistema Docker, tanto los que
+            están actualmente en ejecución como los que están detenidos. La
+            salida mostrará información importante como el CONTAINER ID (un
+            identificador único para cada contenedor), el nombre del contenedor,
+            la imagen que utilizó para crearse y su estado actual. Es útil para
+            verificar que tu contenedor se ha creado y obtener su ID.
+        </p>
+    </div>
+</section>
+<!-- Paso 4 -->
+
+<!-- Paso 5 -->
+<section class="py-10 flex justify-center">
+    <!-- Contenido -->
+    <div class="w-full md:w-2/3 space-y-4 px-4 md:px-0">
+        <h2 class="text-2xl font-bold text-white px-5">
+            5. Detener y eliminar el contenedor
+        </h2>
+
+        <!-- Comando con botón de copiar -->
+        <div class="px-4">
+            <div
+                class="flex items-center gap-2 bg-gray-100 p-2 rounded-md border border-gray-300 overflow-auto"
+            >
+                <code class="comando-copiable text-sm text-gray-700"
+                    >docker stop a1b2c3d4e5f6
+                </code>
+                <span class="text-sm text-green-800"> # Detener </span>
+                <button
+                    class="copiar-comando ml-auto p-1 text-2xl text-gray-500 hover:text-gray-800 cursor-pointer"
+                    aria-label="Copiar comando al portapapeles"
+                >
+                    📋
+                </button>
+            </div>
+        </div>
+
+        <div class="px-4">
+            <div
+                class="flex items-center gap-2 bg-gray-100 p-2 rounded-md border border-gray-300 overflow-auto"
+            >
+                <code class="comando-copiable text-sm text-gray-700"
+                    >docker rm a1b2c3d4e5f6
+                </code>
+                <span class="text-sm text-green-800">
+                    # Eliminar (Requiere que el contenedor esté detenido)
+                </span>
+                <button
+                    class="copiar-comando ml-auto p-1 text-2xl text-gray-500 hover:text-gray-800 cursor-pointer"
+                    aria-label="Copiar comando al portapapeles"
+                >
+                    📋
+                </button>
+            </div>
+        </div>
+
+        <!-- Mensaje de copiado -->
+        <p class="mensaje-copiado text-green-600 text-lg hidden px-5">
+            ¡Comando copiado al portapapeles!
+        </p>
+
+        <!-- Descripción -->
+        <p class="text-gray-300 text-sm leading-relaxed px-5">
+            docker stop a1b2c3d4e5f6: Detiene el contenedor con el ID
+            a1b2c3d4e5f6. Esto hace que el proceso dentro del contenedor se
+            cierre de forma controlada. docker rm a1b2c3d4e5f6: Elimina el
+            contenedor con el ID a1b2c3d4e5f6. Debe estar detenido para poder
+            ser eliminado, borrando así el contenedor y su configuración.
+        </p>
+    </div>
+</section>
+<!-- Paso 5 -->
+
+<!-- Paso 6 -->
+<section class="py-10 flex justify-center">
+    <!-- Contenido -->
+    <div class="w-full md:w-2/3 space-y-4 px-4 md:px-0">
+        <h2 class="text-2xl font-bold text-white px-5">
+            6. Iniciar el contenedor y entrar en él (Este caso se usa si el
+            contenedor se detuvo )
+        </h2>
+
+        <!-- Comando con botón de copiar -->
+        <div class="px-4">
+            <div
+                class="flex items-center gap-2 bg-gray-100 p-2 rounded-md border border-gray-300 overflow-auto"
+            >
+                <code class="comando-copiable text-sm text-gray-700"
+                    >docker start a1b2c3d4e5f6
+                </code>
+                <span class="text-sm text-green-800">
+                    # Usa el CONTAINER ID (este se obtiene con docker ps -a)
+                </span>
+                <button
+                    class="copiar-comando ml-auto p-1 text-2xl text-gray-500 hover:text-gray-800 cursor-pointer"
+                    aria-label="Copiar comando al portapapeles"
+                >
+                    📋
+                </button>
+            </div>
+        </div>
+
+        <!-- Mensaje de copiado -->
+        <p class="mensaje-copiado text-green-600 text-lg hidden px-5">
+            ¡Comando copiado al portapapeles!
+        </p>
+
+        <!-- Descripción -->
+        <p class="text-gray-300 text-sm leading-relaxed px-5">
+            El comando docker start a1b2c3d4e5f6 inicia un contenedor que
+            previamente fue detenido, utilizando su CONTAINER ID (que obtuviste
+            con docker ps -a). El contenedor vuelve a ejecutarse en segundo
+            plano.
+        </p>
+    </div>
+</section>
+<!-- Paso 6 -->
+
+<!-- Paso 7 -->
+<section class="py-10 flex justify-center">
+    <!-- Contenido -->
+    <div class="w-full md:w-2/3 space-y-4 px-4 md:px-0">
+        <h2 class="text-2xl font-bold text-white px-5">
+            7. Reingresar al contenedor en ejecución
+        </h2>
+
+        <!-- Comando con botón de copiar -->
+        <div class="px-4">
+            <div
+                class="flex items-center gap-2 bg-gray-100 p-2 rounded-md border border-gray-300 overflow-auto"
+            >
+                <code class="comando-copiable text-sm text-gray-700"
+                    >docker exec -it a1b2c3d4e5f6 bash
+                </code>
+                <span class="text-sm text-green-800">
+                    # Usa el CONTAINER ID (este se obtiene con docker ps -a)
+                </span>
+                <button
+                    class="copiar-comando ml-auto p-1 text-2xl text-gray-500 hover:text-gray-800 cursor-pointer"
+                    aria-label="Copiar comando al portapapeles"
+                >
+                    📋
+                </button>
+            </div>
+        </div>
+
+        <!-- Mensaje de copiado -->
+        <p class="mensaje-copiado text-green-600 text-lg hidden px-5">
+            ¡Comando copiado al portapapeles!
+        </p>
+
+        <!-- Descripción -->
+        <p class="text-gray-300 text-sm leading-relaxed px-5">
+            El comando docker exec -it a1b2c3d4e5f6 bash te permite conectarte a
+            la terminal de un contenedor que ya está corriendo.
+            <br />
+            <br />
+            Docker exec: Es el comando para ejecutar comandos dentro de un contenedor.
+            -it: Proporciona una terminal interactiva (-i) y asigna un pseudo-TTY
+            (-t), lo que te da una línea de comandos dentro del contenedor.
+            <br />
+            <br />
+            a1b2c3d4e5f6: Es el CONTAINER ID del contenedor al que quieres acceder.
+            <br />
+            <br />
+            Bash: Es el comando que se ejecutará dentro del contenedor. En este caso,
+            abre una shell Bash para que puedas interactuar con el sistema de archivos
+            y los procesos del contenedor. Si el contenedor usa otra shell (como
+            sh), podrías reemplazar bash con ese comando.
+        </p>
+    </div>
+</section>
+<!-- Paso 7 -->
+
+<!-- Paso 8 -->
+<section class="py-10 flex justify-center">
+    <!-- Contenido -->
+    <div class="w-full md:w-2/3 space-y-4 px-4 md:px-0">
+        <h2 class="text-2xl font-bold text-white px-5">
+            8. Comandos para Copiar Archivos entre Contenedor y Host
+        </h2>
+
+        <!-- Comando con botón de copiar -->
+        <div class="px-4">
+            <h2 class="text-xl font-bold text-white px-5 mb-2">
+                1. Copiar del Host al Contenedor
+            </h2>
+            <div
+                class="flex items-center gap-2 bg-gray-100 p-2 rounded-md border border-gray-300 overflow-auto"
+            >
+                <code class="comando-copiable text-sm text-gray-700"
+                    >docker cp /ruta/en/host/archivo.txt
+                    CONTAINER_ID:/ruta/destino/
+                </code>
+                <span class="text-sm text-green-800">
+                    # Ejemplo: docker cp C:\Users\user\documento.txt
+                    a1b2c3d4:/app/ (En Windows, usar rutas absolutas con / o \)
+                </span>
+                <button
+                    class="copiar-comando ml-auto p-1 text-2xl text-gray-500 hover:text-gray-800 cursor-pointer"
+                    aria-label="Copiar comando al portapapeles"
+                >
+                    📋
+                </button>
+            </div>
+        </div>
+
+        <!-- Comando con botón de copiar -->
+        <div class="px-4">
+            <h2 class="text-xl font-bold text-white px-5 mb-2 mt-12">
+                2. Copiar del Contenedor al Host
+            </h2>
+            <div
+                class="flex items-center gap-2 bg-gray-100 p-2 rounded-md border border-gray-300 overflow-auto"
+            >
+                <code class="comando-copiable text-sm text-gray-700"
+                    >docker cp CONTAINER_ID:/ruta/en/contenedor/archivo.txt
+                    /ruta/en/host/
+                </code>
+                <span class="text-sm text-green-800">
+                    # Ejemplo: docker cp a1b2c3d4:/app/logs/error.log ./logs/
+                </span>
+                <button
+                    class="copiar-comando ml-auto p-1 text-2xl text-gray-500 hover:text-gray-800 cursor-pointer"
+                    aria-label="Copiar comando al portapapeles"
+                >
+                    📋
+                </button>
+            </div>
+        </div>
+
+        <!-- Mensaje de copiado -->
+        <p class="mensaje-copiado text-green-600 text-lg hidden px-5">
+            ¡Comando copiado al portapapeles!
+        </p>
+
+        <!-- Descripción -->
+        <p class="text-gray-300 text-sm leading-relaxed px-5">
+            Estos comandos Docker cp te permiten transferir archivos y directorios entre tu computadora (el "host") y un contenedor Docker.
+        </p>
+
+        <p class="text-green-600 text-sm leading-relaxed px-5">
+            IMPORTANTE: Si los comandos cambian en el transcurso del tiempo,
+            revisar la documentación de Docker, la estructura de trabajo no
+            cambiará.
+        </p>
+    </div>
+</section>
+<!-- Paso 8 -->
+
+
+<script>
+    document.querySelectorAll('.copiar-comando').forEach((boton) => {
+        boton.addEventListener('click', () => {
+            const contenedor = boton.closest('div'); // Contenedor del botón
+            const codigo = contenedor.querySelector('code').innerText.trim();
+            const mensaje = contenedor.parentElement.parentElement.querySelector('.mensaje-copiado');
+
+            // Copiar al portapapeles
+            navigator.clipboard.writeText(codigo).then(() => {
+                // Mostrar mensaje
+                mensaje.classList.remove('hidden');
+                mensaje.classList.add('block');
+
+                // Ocultar después de 2 segundos
+                setTimeout(() => {
+                    mensaje.classList.add('hidden');
+                    mensaje.classList.remove('block');
+                }, 2000);
+            });
+        });
+    });
+</script>
+
