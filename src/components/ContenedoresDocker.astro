@@ -1,0 +1,123 @@
+---
+// src/components/ContenedoresDocker.astro
+---
+
+<section
+  id="ContenedoresDockerConceptual"
+  class="py-16 bg-gradient-to-br from-white to-gray-100 px-6"
+>
+  <div class="max-w-7xl">
+    <h2 class="text-4xl font-extrabold text-center text-gray-900 mb-10">
+      ¿Qué es un <span class="text-blue-600">contenedor</span>?
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <!-- Visual terminal + bloques -->
+      <div class="relative bg-gray-900 text-white rounded-xl p-6 shadow-xl">
+        <div class="font-mono text-sm mb-2 text-green-400">
+          # docker run ubuntu
+        </div>
+        <ul class="bg-gray-800 rounded-lg flex flex-col p-4 text-sm">
+          <li>📦 Instanciando imagen...</li>
+          <li>🔐 Aislamiento activo</li>
+          <li>🌐 Red virtual asignada</li>
+          <li>⚡ Listo en 2.1s</li>
+        </ul>
+        <div class="mt-4 text-sm text-gray-300">
+          Este terminal simulado muestra cómo se crea un contenedor en segundos,
+          partiendo de una imagen.
+        </div>
+      </div>
+
+      <!-- Texto explicativo -->
+      <div class="space-y-6">
+        <p class="text-gray-700 text-lg">
+          Un contenedor es una instancia en ejecución de una imagen Docker.
+          Aísla una aplicación y sus dependencias, proporcionando un entorno
+          consistente en cualquier sistema.
+          <br />
+          Es decir que un contenedor Docker es una instancia "Viva" de una imagen.
+          Ejecuta una app de forma aislada, rápida y portátil.
+        </p>
+        <ul class="space-y-2 text-gray-700">
+          <li>
+            ✅ <strong>Aislamiento:</strong> Sistema, red y procesos separados.
+          </li>
+          <li>
+            ⚡ <strong>Inicio instantáneo:</strong> Sin cargar un SO completo.
+          </li>
+          <li>
+            🧼 <strong>Efímero:</strong> Cambios temporales a menos que uses volúmenes.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección práctica con paso a paso -->
+<section id="ContenedoresDockerPractico" class="bg-white py-20 px-6">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-4xl font-extrabold text-center text-gray-900 mb-2">
+      Ciclo de vida de un <span class="text-blue-600">contenedor</span>
+    </h2>
+    <p class="text-center text-gray-600 mb-12">
+      Desde la creación hasta la eliminación. Aprende el flujo completo.
+    </p>
+
+    <!-- Stepper -->
+    <div class="space-y-10">
+      <!-- Paso 1 -->
+      <div class="flex items-start gap-4">
+        <div
+          class="bg-blue-100 text-blue-600 rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg"
+        >
+          1
+        </div>
+        <div>
+          <h4 class="text-2xl font-semibold text-gray-800">Crear y ejecutar</h4>
+          <p class="text-gray-600 text-lg mb-2">
+            Inicia un contenedor desde una imagen:
+          </p>
+          <div
+            class="bg-gray-100 rounded text-sm overflow-hidden p-4">
+            docker run -it --memory=16g --cpus=4 -v /host:/workspace ubuntu
+          </div>
+          <ul class="text-gray-600 text-sm mt-2 space-y-1">
+            <li><strong>-it:</strong> Modo interactivo</li>
+            <li><strong>--memory / --cpus:</strong> Límites de recursos</li>
+            <li><strong>-v:</strong> Monta un volumen del host</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Paso 2 -->
+      <div class="flex items-start gap-4">
+        <div
+          class="bg-blue-100 text-blue-600 rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg"
+        >
+          2
+        </div>
+        <div>
+          <h4 class="text-2xl font-semibold text-gray-800">
+            Gestionar contenedores
+          </h4>
+          <ul class="text-gray-600 text-sm space-y-1">
+            <li>
+              <code class="text-blue-600 font-mono">docker ps</code> – Ver contenedores
+              en ejecución
+            </li>
+            <li>
+              <code class="text-blue-600 font-mono">docker stop nombre</code> – Detener
+              un contenedor
+            </li>
+            <li>
+              <code class="text-blue-600 font-mono">docker rm nombre</code> – Eliminarlo
+              del sistema
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

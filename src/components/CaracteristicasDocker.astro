@@ -1,0 +1,50 @@
+---
+// src/components/CaracterísticasDocker.astro
+---
+
+<section id="CaracteristicasDocker" class="bg-gray-900 py-16 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-extrabold text-white text-center mb-12">
+      Características clave de <span class="text-blue-500">Docker</span>
+    </h2>
+
+    <div class="grid gap-8 md:grid-cols-2">
+      
+      <!-- Card 1 -->
+      <div class="bg-white shadow-md rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Contenedores vs Máquinas Virtuales</h3>
+        <ul class="list-disc list-inside text-gray-600 space-y-1">
+          <li>Comparten el kernel del sistema anfitrión, lo que los hace más ligeros y rápidos.</li>
+          <li>Ejecutan procesos aislados sin la sobrecarga de virtualización.</li>
+        </ul>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white shadow-md rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Portabilidad</h3>
+        <p class="text-gray-600 leading-relaxed">
+          Ejecuta tus contenedores en cualquier sistema compatible con Docker: Linux, Windows, macOS e incluso entornos cloud.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white shadow-md rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Eficiencia en recursos</h3>
+        <p class="text-gray-600 leading-relaxed">
+          Al no requerir un sistema operativo completo, los contenedores consumen menos CPU, RAM y almacenamiento.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-white shadow-md rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">Ecosistema integrado</h3>
+        <ul class="space-y-2 text-gray-600">
+          <li><strong>Docker Engine:</strong> Motor de contenedores potente y confiable.</li>
+          <li><strong>Docker Hub:</strong> Repositorio oficial para compartir imágenes.</li>
+          <li><strong>Docker Compose:</strong> Orquestación sencilla de entornos multi-contenedor.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+---
+// src/components/ComandosDocker.astro
+---
+
+<section class="py-10 px-4 sm:px-6 lg:px-8 bg-white" id="ComandosDocker">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl font-bold text-gray-900 text-center mb-6">Comandos clave para gestionar imágenes</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-700">
+      <div>
+        <p><strong>docker pull</strong> – Descargar imagen</p>
+        <code class="block bg-gray-100 p-2 rounded">docker pull urkiller/autodock_04.07.25</code>
+      </div>
+      <div>
+        <p><strong>docker images</strong> – Listar imágenes locales</p>
+        <code class="block bg-gray-100 p-2 rounded">docker images</code>
+      </div>
+      <div>
+        <p><strong>docker rmi</strong> – Eliminar imagen</p>
+        <code class="block bg-gray-100 p-2 rounded">docker rmi urkiller/autodock_04.07.25</code>
+      </div>
+    </div>
+  </div>
+</section>

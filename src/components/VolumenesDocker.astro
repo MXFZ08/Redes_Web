@@ -1,0 +1,95 @@
+---
+// src/components/VolumenesDocker.astro
+---
+
+<!-- Bloque conceptual: Visual tipo "infraestructura visual" -->
+<section id="VolumenesDockerConceptual" class="bg-gradient-to-b from-gray-50 to-white py-16 px-6">
+  <div class="max-w-6xl mx-auto space-y-12">
+    <h2 class="text-4xl font-extrabold text-center text-gray-900">
+      ¿Qué son los <span class="text-blue-600">Volúmenes</span> en Docker?
+    </h2>
+
+    <p class="text-gray-700 text-lg text-center max-w-3xl mx-auto">
+      Son unidades de almacenamiento persistente que permiten conservar datos incluso cuando el contenedor se reinicia o elimina.
+    </p>
+
+    <!-- Visual tipo arquitectura -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+      <div class="bg-white shadow-lg rounded-xl p-6 border">
+        <img src="https://cdn-icons-png.flaticon.com/512/747/747545.png" alt="volumen" class="w-12 mx-auto mb-3" />
+        <h3 class="text-xl font-bold text-gray-800">Volúmenes</h3>
+        <p class="text-gray-600 text-sm mt-2">Creados y gestionados por Docker. Se almacenan en <code class="text-blue-600">/var/lib/docker/volumes</code>.</p>
+      </div>
+
+      <div class="bg-white shadow-lg rounded-xl p-6 border">
+        <img src="https://cdn-icons-png.flaticon.com/512/564/564409.png" alt="bind mount" class="w-12 mx-auto mb-3" />
+        <h3 class="text-xl font-bold text-gray-800">Bind Mounts</h3>
+        <p class="text-gray-600 text-sm mt-2">Usan rutas absolutas del host. Más control, pero menos portabilidad.</p>
+      </div>
+
+      <div class="bg-white shadow-lg rounded-xl p-6 border">
+        <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" alt="tmpfs" class="w-12 mx-auto mb-3" />
+        <h3 class="text-xl font-bold text-gray-800">tmpfs</h3>
+        <p class="text-gray-600 text-sm mt-2">Datos en RAM. Rápido, pero volátil. Ideal para datos sensibles y temporales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bloque práctico con "tarjetas interactivas" -->
+<section id="VolumenesDockerPractico" class="bg-white py-20 px-6">
+  <div class="max-w-6xl mx-auto space-y-16">
+    <h3 class="text-3xl font-bold text-center text-gray-900">Uso práctico de volúmenes</h3>
+
+    <!-- Step cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Tarjeta 1 -->
+      <div class="bg-gray-100 rounded-xl p-6 shadow-md hover:shadow-lg transition">
+        <h4 class="text-xl font-semibold text-gray-800 mb-2">1. Crear volumen</h4>
+        <div class="bg-white p-3 rounded text-sm font-mono text-blue-600 overflow-x-auto">
+          docker volume create mivolumen
+        </div>
+        <p class="text-gray-600 text-sm mt-2">Crea un volumen persistente con nombre personalizado.</p>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="bg-gray-100 rounded-xl p-6 shadow-md hover:shadow-lg transition">
+        <h4 class="text-xl font-semibold text-gray-800 mb-2">2. Usarlo en un contenedor</h4>
+        <div class="bg-white p-3 rounded text-sm font-mono text-blue-600 overflow-x-auto">
+          docker run -d --name mi-db -v mivolumen:/var/lib/mysql mysql
+        </div>
+        <p class="text-gray-600 text-sm mt-2">Monta el volumen dentro del contenedor para persistir datos de MySQL.</p>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="bg-gray-100 rounded-xl p-6 shadow-md hover:shadow-lg transition">
+        <h4 class="text-xl font-semibold text-gray-800 mb-2">3. Inspeccionar volumen</h4>
+        <div class="bg-white p-3 rounded text-sm font-mono text-blue-600 overflow-x-auto">
+          docker volume inspect mivolumen
+        </div>
+        <p class="text-gray-600 text-sm mt-2">Muestra metadatos, punto de montaje y opciones del volumen.</p>
+      </div>
+    </div>
+
+    <!-- Comparativa tipo card -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 text-gray-700">
+      <div class="bg-blue-50 p-6 rounded-xl shadow-inner">
+        <h4 class="font-bold text-lg text-blue-800 mb-2">🧱 Contenedores</h4>
+        <ul class="list-disc list-inside space-y-1">
+          <li>Entorno efímero (reinicio = limpio)</li>
+          <li>Ejecuta aplicaciones y servicios</li>
+          <li>Aislados por defecto</li>
+        </ul>
+      </div>
+
+      <div class="bg-green-50 p-6 rounded-xl shadow-inner">
+        <h4 class="font-bold text-lg text-green-800 mb-2">💾 Volúmenes</h4>
+        <ul class="list-disc list-inside space-y-1">
+          <li>Datos persistentes fuera del contenedor</li>
+          <li>Compartibles entre contenedores</li>
+          <li>Backup/restore fáciles</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

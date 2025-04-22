@@ -1,0 +1,29 @@
+---
+// src/components/docker/IntroduccionDocker.astro
+---
+
+<section class="px-6 h-screen" id="Docker">
+  <div class="w-full h-full flex flex-col-reverse xl:flex-row items-center justify-center gap-y-10 md:px-10">
+    
+    <!-- Texto principal -->
+    <div class="text-center xl:text-left w-full xl:w-1/2">
+      <h1 class="text-4xl font-extrabold text-gray-900 leading-tight">
+        Eficiencia impulsada por <span class="text-blue-600">Docker</span>
+      </h1>
+      <p class="mt-4 text-gray-600 text-base leading-relaxed">
+        Docker es una plataforma open-source que permite automatizar el despliegue, ejecución y gestión de apps dentro de contenedores virtuales. 
+        Te ayuda a mantener entornos coherentes en desarrollo, pruebas y producción con máxima portabilidad y eficiencia.
+      </p>
+    </div>
+
+    <!-- Ilustración -->
+    <div class="w-full xl:w-1/2 flex justify-center">
+      <img 
+        src={"docker_logo.png"} 
+        alt="Persona ilustrada usando Docker" 
+        class="w-full"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>

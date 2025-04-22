@@ -1,0 +1,66 @@
+---
+// src/components/ImagenesDocker.astro
+---
+
+<section id="ImagenesDocker" class="bg-white py-16 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-extrabold text-gray-900 text-center mb-12">
+      Imágenes en <span class="text-blue-600">Docker</span>
+    </h2>
+
+    <p class="text-center text-gray-700 max-w-3xl mx-auto mb-16">
+      Las imágenes Docker son la base de los contenedores: plantillas inmutables que incluyen todo lo necesario para ejecutar tu aplicación, desde el sistema base hasta dependencias y configuraciones específicas.
+    </p>
+
+    <!-- Timeline horizontal -->
+    <div class="relative flex flex-col sm:flex-row justify-between items-start sm:items-center gap-10 sm:gap-0">
+      <!-- Paso 1 -->
+      <div class="flex flex-col items-center text-center sm:w-1/4">
+        <div class="bg-blue-100 text-blue-600 p-4 rounded-full mb-4 z-20">
+          🧱
+        </div>
+        <h3 class="text-lg font-semibold text-gray-800">Capas (Layers)</h3>
+        <p class="text-gray-600 text-sm mt-2">
+          Cada instrucción en el Dockerfile genera una nueva capa. Estas se apilan para formar la imagen final.
+        </p>
+      </div>
+
+      <!-- Conector -->
+      <div class="hidden sm:block w-1 h-1 bg-blue-300 rounded-full absolute top-8 left-1/4 transform -translate-x-1/2"></div>
+      <div class="hidden sm:block border-t-2 border-dashed border-blue-200 absolute top-8 left-[12.5%] w-3/4 z-0"></div>
+
+      <!-- Paso 2 -->
+      <div class="flex flex-col items-center text-center sm:w-1/4">
+        <div class="bg-blue-100 text-blue-600 p-4 rounded-full mb-4 z-20">
+          🧩
+        </div>
+        <h3 class="text-lg font-semibold text-gray-800">Union FS</h3>
+        <p class="text-gray-600 text-sm mt-2">
+          El sistema de archivos de unión permite que las capas se comporten como una sola imagen coherente.
+        </p>
+      </div>
+
+      <!-- Paso 3 -->
+      <div class="flex flex-col items-center text-center sm:w-1/4">
+        <div class="bg-blue-100 text-blue-600 p-4 rounded-full mb-4 z-20">
+          ⚙️
+        </div>
+        <h3 class="text-lg font-semibold text-gray-800">Componentes</h3>
+        <p class="text-gray-600 text-sm mt-2">
+          Desde una base (ej. Ubuntu) hasta dependencias, archivos y configuraciones como CMD y ENTRYPOINT.
+        </p>
+      </div>
+
+      <!-- Paso 4 -->
+      <div class="flex flex-col items-center text-center sm:w-1/4">
+        <div class="bg-blue-100 text-blue-600 p-4 rounded-full mb-4 z-20">
+          🚀
+        </div>
+        <h3 class="text-lg font-semibold text-gray-800">Resultado</h3>
+        <p class="text-gray-600 text-sm mt-2">
+          Una imagen ligera, reutilizable y portable, lista para ejecutar tu app en cualquier entorno Docker.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

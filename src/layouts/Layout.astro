@@ -5,6 +5,8 @@ import Projects from "../components/Projects.astro";
 import Contact from "../components/Contact.astro";
 import Navbar from "../components/Navbar.astro";
 import Tutorial from "../components/Tutorial.astro";
+import Referencias from "../components/Referencias.astro";
+import DockerInfo from "../components/Dockerinfo.astro";
 ---
 
 <html lang="es">
@@ -15,12 +17,10 @@ import Tutorial from "../components/Tutorial.astro";
 		<link href="/dist/output.css" rel="stylesheet" />
 	</head>
 	<body class="bg-gray-900 text-white font-sans">
-		<Tutorial />
-		
+		<Navbar />
 		<Hero />
-		<About />
-		<Projects />
-		<Contact />
-		
+		<DockerInfo />
+		<Tutorial />
+		<Referencias />
 	</body>
 </html>

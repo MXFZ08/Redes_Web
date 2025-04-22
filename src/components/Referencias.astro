@@ -1,0 +1,182 @@
+---
+
+---
+
+<section class="py-10 px-4 sm:px-6 lg:px-8 bg-white" id="Referencias">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">
+      Referencias
+    </h2>
+
+    <div class="space-y-4">
+      <!-- Card 1 -->
+      <div
+        class="bg-gray-50 rounded-2xl shadow-sm border border-gray-200 overflow-hidden"
+      >
+        <button
+          class="w-full text-left px-6 py-4 text-xl font-semibold text-gray-800 hover:bg-gray-100 transition cursor-pointer"
+          onclick="toggle('doc')"
+        >
+          Documentación Oficial de Docker
+        </button>
+        <div
+          id="doc"
+          class="transition-all duration-300 ease-in-out overflow-hidden max-h-0 opacity-0 px-6"
+        >
+          <p class="text-gray-600 mb-2">
+            Docker Inc. (2023). <span class="italic">Docker Documentation</span
+            >.
+            <a
+              href="https://docs.docker.com"
+              target="_blank"
+              class="text-blue-600 underline hover:text-blue-800"
+              >https://docs.docker.com</a
+            >
+          </p>
+          <ul class="list-disc list-inside text-gray-700 space-y-1 mb-4">
+            <li>Manage data in Docker (Volumes)</li>
+            <li>docker cp command</li>
+            <li>Docker Desktop WSL 2 backend</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div
+        class="bg-gray-50 rounded-2xl shadow-sm border border-gray-200 overflow-hidden"
+      >
+        <button
+          class="w-full text-left px-6 py-4 text-xl font-semibold text-gray-800 hover:bg-gray-100 transition cursor-pointer"
+          onclick="toggle('repos')"
+        >
+          Repositorios Oficiales
+        </button>
+        <div
+          id="repos"
+          class="transition-all duration-300 ease-in-out overflow-hidden max-h-0 opacity-0 px-6"
+        >
+          <ul class="space-y-2 text-gray-600 mb-4">
+            <li>
+              <span class="font-medium">Docker Hub:</span>
+              <a
+                href="https://hub.docker.com"
+                target="_blank"
+                class="text-blue-600 underline hover:text-blue-800"
+                >https://hub.docker.com</a
+              >
+            </li>
+            <li>
+              <span class="font-medium">GitHub de Docker:</span>
+              <a
+                href="https://github.com/docker"
+                target="_blank"
+                class="text-blue-600 underline hover:text-blue-800"
+                >https://github.com/docker</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div
+        class="bg-gray-50 rounded-2xl shadow-sm border border-gray-200 overflow-hidden"
+      >
+        <button
+          class="w-full text-left px-6 py-4 text-xl font-semibold text-gray-800 hover:bg-gray-100 transition cursor-pointer"
+          onclick="toggle('libros')"
+        >
+          Libros Técnicos
+        </button>
+        <div
+          id="libros"
+          class="transition-all duration-300 ease-in-out overflow-hidden max-h-0 opacity-0 px-6"
+        >
+          <p class="text-gray-700 mb-4">
+            Poulton, N. (2021). <span class="italic">Docker Deep Dive</span>.
+            ISBN: 978-1-83882-812-5.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div
+        class="bg-gray-50 rounded-2xl shadow-sm border border-gray-200 overflow-hidden"
+      >
+        <button
+          class="w-full text-left px-6 py-4 text-xl font-semibold text-gray-800 hover:bg-gray-100 transition cursor-pointer"
+          onclick="toggle('estandares')"
+        >
+          Estándares
+        </button>
+        <div
+          id="estandares"
+          class="transition-all duration-300 ease-in-out overflow-hidden max-h-0 opacity-0 px-6"
+        >
+          <p class="text-gray-700 mb-4">
+            <span class="font-medium">Open Container Initiative (OCI):</span>
+            <a
+              href="https://opencontainers.org"
+              target="_blank"
+              class="text-blue-600 underline hover:text-blue-800"
+              >https://opencontainers.org</a
+            >
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div
+        class="bg-gray-50 rounded-2xl shadow-sm border border-gray-200 overflow-hidden"
+      >
+        <button
+          class="w-full text-left px-6 py-4 text-xl font-semibold text-gray-800 hover:bg-gray-100 transition cursor-pointer"
+          onclick="toggle('imagenes')"
+        >
+          Imagenes usadas en la Web
+        </button>
+        <div
+          id="imagenes"
+          class="transition-all duration-300 ease-in-out overflow-hidden max-h-0 opacity-0 px-6"
+        >
+          <p class="text-gray-700 mb-4">
+            <span class="font-medium"
+              >Imagenes usadas en la Web:</span
+            >
+            <a
+              href="https://freepik.com"
+              target="_blank"
+              class="text-blue-600 underline hover:text-blue-800"
+              >https://freepik.com</a
+            >
+          </p>
+          <p class="text-gray-700 mb-4">
+            <span class="font-medium"
+              >Imagenes usadas en la Web (Cientifico):</span
+            >
+            <a
+              href="https://www.freepik.com/free-psd/3d-background-with-scientist-experimenting-laboratory_37208899.htm#fromView=search&page=1&position=12&uuid=87aa7068-b19f-4f1c-b818-619a98a112f7&query=science+3d"
+              target="_blank"
+              class="text-blue-600 underline hover:text-blue-800"
+              >https://freepik.com</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    function toggle(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const isOpen = el.classList.contains("max-h-[1000px]");
+      el.classList.toggle("max-h-0", isOpen);
+      el.classList.toggle("opacity-0", isOpen);
+      el.classList.toggle("mt-4", !isOpen);
+      el.classList.toggle("max-h-[1000px]", !isOpen);
+      el.classList.toggle("opacity-100", !isOpen);
+    }
+  </script>
+</section>
