@@ -2,7 +2,18 @@ version: '3.8'
 
 services:
   astro-static:
-    build: .
+    build:
+      context: .
     ports:
-      - "80:80"
+      - "8090:80"
     restart: always
+    networks:
+      - app-network
+      - red-compartida
+
+networks:
+  app-network:
+    driver: bridge
+  red-compartida:
+    external: true
+
